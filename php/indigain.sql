@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2024 at 06:57 PM
+-- Generation Time: May 09, 2024 at 07:49 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -85,7 +85,10 @@ CREATE TABLE `payments` (
 CREATE TABLE `product` (
   `id` int(100) NOT NULL,
   `price` double NOT NULL,
-  `name` text NOT NULL
+  `name` text NOT NULL,
+  `category` int(50) NOT NULL,
+  `image` text NOT NULL,
+  `cross_price` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
