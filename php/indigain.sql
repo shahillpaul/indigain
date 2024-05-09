@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2024 at 07:49 PM
+-- Generation Time: May 09, 2024 at 09:58 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,6 +32,17 @@ CREATE TABLE `category` (
   `name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `name`) VALUES
+(0, 'pre workout'),
+(1, 'creatine'),
+(2, 'whey protein'),
+(3, 'bcaa'),
+(4, 'weight gainer');
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +60,15 @@ CREATE TABLE `customer` (
   `contact_number` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`id`, `first_name`, `last_name`, `email`, `state`, `pin_code`, `city`, `contact_number`) VALUES
+(1, 'nikhil ', 'gogoi', 'nikhilgogoi123@gmail.com', 'assam', '786188', 'lakhimpur', '1234567890'),
+(2, 'paras ', 'rai', 'parasrai234@gmail.com', 'assam', '786189', 'sadiya', '9908964789'),
+(3, 'dominik', 'toretto', 'dominik456@gmail.com', 'meghalaya', '793001', 'shillong', '6787658909');
+
 -- --------------------------------------------------------
 
 --
@@ -60,8 +80,17 @@ CREATE TABLE `orders` (
   `order_number` int(100) NOT NULL,
   `order_amount` double NOT NULL,
   `quantity` int(50) NOT NULL,
-  `products` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`products`))
+  `products` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_date`, `order_number`, `order_amount`, `quantity`, `products`) VALUES
+('2024-05-10', 1, 5000, 3, '0,0,1'),
+('2024-05-10', 2, 2000, 1, '3'),
+('2024-05-10', 3, 4000, 2, '1,2');
 
 -- --------------------------------------------------------
 
@@ -75,6 +104,15 @@ CREATE TABLE `payments` (
   `order_no` int(100) NOT NULL,
   `amount` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `bill_no`, `order_no`, `amount`) VALUES
+(1, 1, 1, 5000),
+(2, 2, 2, 2000),
+(3, 3, 3, 4000);
 
 -- --------------------------------------------------------
 
@@ -91,6 +129,42 @@ CREATE TABLE `product` (
   `cross_price` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `price`, `name`, `category`, `image`, `cross_price`) VALUES
+(1, 1249, 'MUSCLE ASYLUM F9 pre-workout (500g)', 0, 'assets/preworkout/WhatsApp Image 2024-04-30 at 2.30.02 PM.jpeg', 1599),
+(2, 1149, 'BIG MUSCLES NUTRITION freak (500g)', 0, 'assets/preworkout/WhatsApp Image 2024-04-30 at 2.30.26 PM.jpeg', 1499),
+(3, 1249, 'GNC PRO performance pre-workout (500g)', 0, 'assets/preworkout/WhatsApp Image 2024-04-30 at 2.31.01 PM.jpeg', 1499),
+(4, 1349, 'BIG MUSCLE NUTRITION Karnage (500g)', 0, 'assets/preworkout/WhatsApp Image 2024-04-30 at 2.31.44 PM.jpeg', 1499),
+(5, 1599, 'MUSCLE BLAZE pre-workout extreme (500g)', 0, 'assets/preworkout/WhatsApp Image 2024-04-30 at 2.32.21 PM.jpeg', 2099),
+(6, 1049, 'WELLCORE warrior pre-workout (500g)', 0, 'assets/preworkout/WhatsApp Image 2024-04-30 at 2.33.01 PM.jpeg', 1399),
+(7, 499, 'WELLCORE creatine monohydrate (100g)', 1, 'assets/creatine/WhatsApp Image 2024-04-30 at 2.16.05 PM.jpeg', NULL),
+(8, 499, 'AVVATAR micronized creatine monohydrate (100g)', 1, 'assets/creatine/WhatsApp Image 2024-04-30 at 2.16.51 PM.jpeg', NULL),
+(9, 399, 'NAKPRO creatine monohydrate (100g)', 1, 'assets/creatine/WhatsApp Image 2024-04-30 at 2.17.30 PM.jpeg', NULL),
+(10, 699, 'MUSCLE BLAZE CREAMP creatine monohydrate (100g)', 1, 'assets/creatine/WhatsApp Image 2024-04-30 at 2.18.17 PM.jpeg', NULL),
+(11, 356, 'NUTRABAY creatine (100g)', 1, 'assets/creatine/WhatsApp Image 2024-04-30 at 2.19.11 PM.jpeg', NULL),
+(12, 499, 'BIG MUSCLES creatine (100g)', 1, 'assets/creatine/WhatsApp Image 2024-04-30 at 2.19.47 PM.jpeg', NULL),
+(13, 2349, 'BIG MUSCLES gold whey (1kg)', 2, 'assets/whey/WhatsApp Image 2024-04-30 at 2.22.51 PM.jpeg', 2599),
+(14, 1989, 'optimum nutrition gold standard whey (1kg)', 2, 'assets/whey/WhatsApp Image 2024-04-30 at 2.23.24 PM.jpeg', 2199),
+(15, 2549, 'MUSCLE BLAZE raw whey protein (1kg)', 2, 'assets/whey/WhatsApp Image 2024-04-30 at 2.23.56 PM.jpeg', 2999),
+(16, 2159, 'avvatar whey protein (1kg)', 2, 'assets/whey/WhatsApp Image 2024-04-30 at 2.24.25 PM.jpeg', 2599),
+(17, 1799, 'GNC PRO 100% whey (1kg)', 2, 'assets/whey/WhatsApp Image 2024-04-30 at 2.24.57 PM.jpeg', 2099),
+(18, 1699, 'FUEL ONE whey max (1kg)', 2, 'assets/whey/WhatsApp Image 2024-04-30 at 2.25.24 PM.jpeg', 1899),
+(19, 1499, 'XTEND BCAA (1kg)', 3, 'assets/bcaa/WhatsApp Image 2024-04-30 at 2.11.43 PM.jpeg', 1999),
+(20, 1799, 'GNC Gold Series BCAA (1kg)', 3, 'assets/bcaa/WhatsApp Image 2024-04-30 at 2.12.20 PM.jpeg', 2499),
+(21, 1599, 'NUTRABAY Gold BCAA(1kg)', 3, 'assets/bcaa/WhatsApp Image 2024-04-30 at 2.13.18 PM.jpeg', 1899),
+(22, 1649, 'BIG MUSCLES NUTRITION BCAA (1kg)', 3, 'assets/bcaa/WhatsApp Image 2024-04-30 at 2.13.51 PM.jpeg', 1899),
+(23, 1999, 'MUSCLE BLAZE BCAA pro (1kg)', 3, 'assets/bcaa/WhatsApp Image 2024-04-30 at 2.14.20 PM.jpeg', 2099),
+(24, 1756, 'Optimum nutrition BCAA(1kg)', 3, 'assets/bcaa/WhatsApp Image 2024-04-30 at 2.15.05 PM.jpeg', 1999),
+(25, 1299, 'NUTRELA weight gain (1kg)', 4, 'assets/weight/WhatsApp Image 2024-04-30 at 2.26.14 PM.jpeg', 1599),
+(26, 1697, 'BOLT mass gainer (1kg)', 4, 'assets/weight/WhatsApp Image 2024-04-30 at 2.26.35 PM.jpeg', 1799),
+(27, 1899, 'BIG MUSCLES NUTRITION real mass gainer (1kg)', 4, 'assets/weight/WhatsApp Image 2024-04-30 at 2.27.02 PM.jpeg', 1999),
+(28, 1899, 'OPTIMUM NUTRITION serious mass (1kg)', 4, 'assets/weight/WhatsApp Image 2024-04-30 at 2.27.32 PM.jpeg', 1999),
+(29, 2159, 'MUSCLE BLAZE weight gainer (1kg)', 4, 'assets/weight/WhatsApp Image 2024-04-30 at 2.28.02 PM.jpeg', 2599),
+(30, 1659, 'GNC PRO weight gainer (1kg)', 4, 'assets/weight/WhatsApp Image 2024-04-30 at 2.28.44 PM.jpeg', 1899);
+
 -- --------------------------------------------------------
 
 --
@@ -102,6 +176,15 @@ CREATE TABLE `users` (
   `name` text NOT NULL,
   `password` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `password`) VALUES
+(1, 'shahill paul', 'shahill77'),
+(2, 'ankit saikia', 'ankit11'),
+(3, 'riki thapa', 'riki99');
 
 --
 -- Indexes for dumped tables
@@ -151,31 +234,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_number` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_number` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
