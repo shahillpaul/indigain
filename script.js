@@ -9,8 +9,6 @@ function prework(){
         {name: "BIG MUSCLE NUTRITION Karnage (500g)", price: "&#x20B9; 1,349" , crossprice:"1,599", image: "assets/preworkout/WhatsApp Image 2024-04-30 at 2.31.44 PM.jpeg"},
         {name: "MUSCLE BLAZE pre-workout extreme (500g)", price: "&#x20B9; 1,599", crossprice:"2099", image: "assets/preworkout/WhatsApp Image 2024-04-30 at 2.32.21 PM.jpeg"},
         {name: "WELLCORE warrior pre-workout (500g)", price: "&#x20B9; 1,049", crossprice:"1,399", image: "assets/preworkout/WhatsApp Image 2024-04-30 at 2.33.01 PM.jpeg"},
-        
-    
     ]
     
     clutter = ""
@@ -299,66 +297,3 @@ function register() {
     signupBtn.click();
     return false;
   });
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
