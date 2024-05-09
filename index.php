@@ -1,5 +1,6 @@
 <?php
-session_start()
+session_start();
+include './php/db.config.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +16,7 @@ session_start()
         } else {
           include('pages/home.php');
         }
+        include 'footer.php';
       ?>
     </main>
   </body>

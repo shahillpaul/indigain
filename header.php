@@ -3,5 +3,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>INDIGAIN</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href="./lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
+  <script src="./lib/jquery/jquery.min.js"></script>
+
+  <style>
+    .text-uppercase {
+      text-transform: uppercase;
+    }
+  </style>
 </head>
