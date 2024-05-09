@@ -154,7 +154,7 @@
      <div class="page4-scroll">
        <div class="creatine-items" id="creatine">
        <?php
-        $creatine = $conn->query("SELECT * FROM product WHERE category = 0 ORDER BY id ASC");
+        $creatine = $conn->query("SELECT * FROM product WHERE category = 1 ORDER BY id ASC");
         while($row = $creatine->fetch_assoc()):
         ?>
         <div class="item">
@@ -180,7 +180,7 @@
      <div class="page5-scroll">
        <div class="whey-items" id="whey">
        <?php
-        $whey = $conn->query("SELECT * FROM product WHERE category = 0 ORDER BY id ASC");
+        $whey = $conn->query("SELECT * FROM product WHERE category = 2 ORDER BY id ASC");
         while($row = $whey->fetch_assoc()):
         ?>
         <div class="item">
@@ -206,7 +206,7 @@
      <div class="page6-scroll">
        <div class="bcaa-item" id="bcaa">
        <?php
-        $bcaa = $conn->query("SELECT * FROM product WHERE category = 0 ORDER BY id ASC");
+        $bcaa = $conn->query("SELECT * FROM product WHERE category = 3 ORDER BY id ASC");
         while($row = $bcaa->fetch_assoc()):
         ?>
         <div class="item">
@@ -232,7 +232,7 @@
      <div class="page7-scroll">
        <div class="weight-item" id="weight">
        <?php
-        $weight = $conn->query("SELECT * FROM product WHERE category = 0 ORDER BY id ASC");
+        $weight = $conn->query("SELECT * FROM product WHERE category = 4 ORDER BY id ASC");
         while($row = $weight->fetch_assoc()):
         ?>
         <div class="item">
