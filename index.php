@@ -7,6 +7,11 @@ include './php/db.config.php';
 <html>
   <?php include './header.php';?>
   <body>
+    <style>
+      ::-webkit-scrollbar{
+        display: none !important;
+      }
+    </style>
     <main>
       <?php 
       // include './navbar.php';

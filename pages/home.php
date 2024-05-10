@@ -50,44 +50,44 @@
    <div id="page2">
      <h1>Catagories</h1>
      <div class="cat-item">
-       <div class="item1">
+       <a href="#page6" class="item1">
          <div class="cat-img">
-           <img src="assets/istockphoto-491851412-1024x1024-transformed.jpeg" alt="" />
+           <img src="./assets/istockphoto-491851412-1024x1024-transformed.jpeg" alt="" />
          </div>
          <h2>BCAA</h2>
-       </div>
-       <div class="item1">
+       </a>
+       <a href="#page4" class="item1">
          <div class="cat-img">
            <img
-             src="https://maskblogspot.com/wp-content/uploads/2020/04/Top-Full-Shoulder-Workouts-or-Exercises-in-Gym.jpg"
+             src="./assets/44.jpg"
              alt="" />
          </div>
          <h2>Creatine</h2>
-       </div>
-       <div class="item1">
+       </a>
+       <a href="#page5" class="item1">
          <div class="cat-img">
-           <img src="https://img.freepik.com/premium-photo/bodybuilder-doing-ez-bar-bicep-curls_754108-1222.jpg"
+           <img src="./assets/22.jpg"
              alt="" />
          </div>
          <h2>Whey Protein</h2>
-       </div>
-       <div class="item1">
+       </a>
+       <a href="#page7" class="item1">
          <div class="cat-img">
            <img
-             src="https://www.wallpapertip.com/wmimgs/178-1782701_photo-wallpaper-man-workout-gym-working-man-work.jpg"
+             src="./assets/11.jpg"
              alt="" />
          </div>
          <h2>Weight Gainer</h2>
-       </div>
-       <div class="item1">
+       </a>
+       <a href="#page3" class="item1">
          <div class="cat-img">
-           <img src="https://www.womenfitness.net/wp/wp-content/uploads/2019/03/hiit1-1000x667.jpg" alt="" />
+           <img src="./assets/33.jpg" alt="" />
          </div>
          <h2>Pre workout</h2>
-       </div>
+       </a>
      </div>
    </div>
-   <div id="page3" class="row">
+   <div id="page3">
      <h1>Pre Workout</h1>
      <div class="page3-scroll">
        <div class="pre-workout-items" id="pre-workout">
@@ -111,6 +111,10 @@
         endwhile;
         ?>
        </div>
+     </div>
+     <div class="sliderControls">
+      <button id="leftBtn"><i class="ion ion-chevron-left"></i></button>
+      <button id="rightBtn"><i class="ion ion-chevron-right"></i></button>
      </div>
    </div>
    <div id="page4">
@@ -138,6 +142,10 @@
         ?>
        </div>
      </div>
+     <div class="sliderControls">
+      <button id="leftBtn"><i class="ion ion-chevron-left"></i></button>
+      <button id="rightBtn"><i class="ion ion-chevron-right"></i></button>
+     </div>
    </div>
    <div id="page5">
      <h1>Whey Protein</h1>
@@ -163,6 +171,10 @@
         endwhile;
         ?>
        </div>
+     </div>
+     <div class="sliderControls">
+      <button id="leftBtn"><i class="ion ion-chevron-left"></i></button>
+      <button id="rightBtn"><i class="ion ion-chevron-right"></i></button>
      </div>
    </div>
    <div id="page6">
@@ -190,6 +202,10 @@
         ?>
        </div>
      </div>
+     <div class="sliderControls">
+      <button id="leftBtn"><i class="ion ion-chevron-left"></i></button>
+      <button id="rightBtn"><i class="ion ion-chevron-right"></i></button>
+     </div>
    </div>
    <div id="page7">
      <h1>Weight Gainer</h1>
@@ -215,6 +231,10 @@
         endwhile;
         ?>
        </div>
+     </div>
+     <div class="sliderControls">
+      <button id="leftBtn"><i class="ion ion-chevron-left"></i></button>
+      <button id="rightBtn"><i class="ion ion-chevron-right"></i></button>
      </div>
    </div>
    <div id="page8">

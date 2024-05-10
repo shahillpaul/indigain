@@ -13,10 +13,35 @@ $(document).ready(function() {
 
     if(te.length){
       $('html, body').animate({
-        scrollTop: te.offset().top
+        scrollTop: te.offset().top - 140
       }, 1000)
     }
   })
+
+  // slidercontrols
+  const sections = ['page3', 'page4', 'page5', 'page6', 'page7']
+  sections.forEach(section => {
+    const left = $(`#${section} .sliderControls #leftBtn`)
+    const right = $(`#${section} .sliderControls #rightBtn`)
+    const slider = $(`#${section} .${section}-scroll`)
+
+    left.on('click',function(){
+      slider.animate({
+        scrollLeft:  '-=800',
+      }, 500)
+      console.log('left')
+    })
+
+    right.on('click',function(){
+      slider.animate({
+        scrollLeft:  '+=800',
+      }, 500)
+      console.log('right')
+    })
+
+  })
+
+  
 })
 
 // storing the selected product id to the cart

@@ -249,6 +249,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: #000000;
 }
 
 #page2 .cat-img {
@@ -265,7 +266,19 @@ body {
 }
 
 .page3-scroll {
-    padding: none;
+    margin: 0px 20px;
+}
+.page4-scroll {
+    margin: 0px 20px;
+}
+.page5-scroll {
+    margin: 0px 20px;
+}
+.page6-scroll {
+    margin: 0px 20px;
+}
+.page7-scroll {
+    margin: 0px 20px;
 }
 
 #page3 .page3-scroll {
@@ -687,6 +700,7 @@ body {
 .row {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 ul {
@@ -1015,4 +1029,36 @@ form .btn input[type="submit"] {
 
 .item {
     cursor: pointer !important;
+}
+
+.sliderControls {
+    position: relative;
+    top: -40vh;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    margin: none;
+    padding: none;
+    /* width: 100vw; */
+}
+.sliderControls button {
+    width: 40px;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+.sliderControls button i {
+    transition: all 0.3s ease-in-out;
+    scale: 2
+}
+
+.sliderControls button:hover i{
+    color: red;
+}
+.sliderControls button:nth-child(1):hover i {
+    transform: translateX(-10px);
+}
+
+.sliderControls button:nth-child(2):hover i {
+    transform: translateX(10px);
 }
