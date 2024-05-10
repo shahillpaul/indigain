@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2024 at 09:58 PM
+-- Generation Time: May 10, 2024 at 11:08 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `indigain`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `uid` int(100) NOT NULL,
+  `product_id` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`name`, `uid`, `product_id`) VALUES
+('AVVATAR micronized creatine monohydrate (100g)', 1, 8),
+('AVVATAR micronized creatine monohydrate (100g)', 2, 8),
+('AVVATAR micronized creatine monohydrate (100g)', 3, 8),
+('NAKPRO creatine monohydrate (100g)', 4, 9),
+('MUSCLE BLAZE CREAMP creatine monohydrate (100g)', 5, 10),
+('NAKPRO creatine monohydrate (100g)', 6, 9),
+('MUSCLE BLAZE CREAMP creatine monohydrate (100g)', 7, 10);
 
 -- --------------------------------------------------------
 
@@ -191,6 +216,12 @@ INSERT INTO `users` (`id`, `name`, `password`) VALUES
 --
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`uid`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
@@ -229,6 +260,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `uid` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `category`
