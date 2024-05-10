@@ -1067,3 +1067,23 @@ form .btn input[type="submit"] {
 .sliderControls button:nth-child(2):hover i {
     transform: translateX(10px);
 }
+
+#scrollTop {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+    border :1px solid #000;
+}
+
+#scrollTop i {
+    scale: 2.5;
+    transition: all 0.3s ease-in-out;
+}
+
+#scrollTop:hover i {
+    scale: 5;
+    opacity: .5;
+}

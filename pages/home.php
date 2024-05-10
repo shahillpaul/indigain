@@ -36,7 +36,7 @@
            Weight Gainer
          </h1>
        </div>
-       <h3>We believe in transpary and quality</h3>
+       <h3>We believe in transparency and quality</h3>
        <div class="btn" id="btn" data-index="${index}">
          <h4><a href="#page2">Start Shopping</a></h4>
        </div>
@@ -243,4 +243,6 @@
  </div>
  <?php include './footer.php' ?>
 
+ <button id="scrollTop" onclick="scrollToTop()"><i class="ion ion-chevron-up"></i></button>
+ 
  <script src="./js/main.js"></script>

@@ -80,3 +80,21 @@ function showAlert(msg){
   })
 }
 
+// Scroll to the top of the page
+function scrollToTop() {
+  $('html, body').animate({
+      scrollTop: 0
+  }, 'slow')
+}
+
+// Add scroll event listener
+$(window).scroll(function() {
+  // Check if the user has scrolled down 500px
+  if ($(this).scrollTop() > 500) {
+      // If scrolled down, show the button
+      $('#scrollTop').fadeIn();
+  } else {
+      // If not scrolled down, hide the button
+      $('#scrollTop').fadeOut();
+  }
+});
