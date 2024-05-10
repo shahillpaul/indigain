@@ -8,6 +8,7 @@
   
   <script src="./lib/jquery/jquery.min.js"></script>
   <script src="./lib/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <script src="./js/parallax.module.bootstrap.js"></script>
 
   <style>
     .text-uppercase {

@@ -26,7 +26,7 @@
          <div class="btn-buy" id="order">Order Now</div>
        </div>
      </div>
-     <div class="landing">
+     <div class="landing" data-bss-parallax="2">
        <div class="heading">
          <h1>Unlock Your Potential with Indigain</h1>
        </div>
