@@ -5,6 +5,11 @@
     font-family: sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: white
+}
+
 html,
 body {
     height: 100%;
@@ -159,9 +164,6 @@ body {
 
 }
 
-#page1 .landing .vid-scroll {
-    /* display: flex; */
-}
 
 #page1 .landing .vids {
     position: absolute;
@@ -262,6 +264,10 @@ body {
 
 }
 
+.page3-scroll {
+    padding: none;
+}
+
 #page3 .page3-scroll {
     overflow-x: scroll;
     overflow-y: hidden;
@@ -277,12 +283,12 @@ body {
 }
 
 #page3 .pre-workout-items {
-    width: 300vh;
+    width: calc(100vw + 6vw * 6);
     display: flex;
+    /* padding: 10px; */
     gap: 6vw;
     height: 50vh;
     bottom: 0%;
-
 }
 
 #page3 .pre-workout-items .item {
@@ -360,7 +366,7 @@ body {
 }
 
 #page4 .creatine-items {
-    width: 300vh;
+    width: calc(100vw + 6vw * 6);
     display: flex;
     gap: 6vw;
     height: 50vh;
@@ -437,7 +443,7 @@ body {
 }
 
 #page5 .whey-items {
-    width: 300vh;
+    width: calc(100vw + 6vw * 6);
     display: flex;
     gap: 6vw;
     height: 50vh;
@@ -516,7 +522,7 @@ body {
 }
 
 #page6 .bcaa-item {
-    width: 300vh;
+    width: calc(100vw + 6vw * 6);
     display: flex;
     gap: 6vw;
     height: 50vh;
@@ -595,7 +601,7 @@ body {
 }
 
 #page7 .weight-item {
-    width: 300vh;
+    width: calc(100vw + 6vw * 6);
     display: flex;
     gap: 6vw;
     height: 50vh;
@@ -657,6 +663,7 @@ body {
     height: 80vh;
     width: 100%;
     display: flex;
+    background: linear-gradient(to bottom, #212121 , #ffffff);
     flex-direction: column;
     align-items: center;
     justify-content: center;

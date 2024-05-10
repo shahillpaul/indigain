@@ -1,48 +1,12 @@
- <!-- <div id="ac">
-   <div class="wrapper">
-     <div class="title-text">
-       <div class="title login">Login Form</div>
-       <div class="title signup">Register Form</div>
-     </div>
-     <div class="form-container">
-       <div class="slide-controls">
-         <input type="radio" name="slide" id="login" checked>
-         <input type="radio" name="slide" id="signup">
-         <label for="login" class="slide login">Login</label>
-         <label for="signup" class="slide signup">Register</label>
-         <div class="slider-tab"></div>
-       </div>
-       <div class="form-inner">
-         <form action="#" class="login">
-           <input type="text" id="loginUsername" placeholder="Username">
-           <input type="password" id="loginPassword" placeholder="Password">
-           <div class="field btn">
-             <div class="btn-layer"></div>
-             <input type="submit" value="Login" onclick="login()">
-           </div>
-         </form>
-         <form action="#" class="signup">
-           <input type="text" id="regUsername" placeholder="Username">
-           <input type="password" id="regPassword" placeholder="Password">
-           <div class="field btn">
-             <div class="btn-layer"></div>
-             <input type="submit" value="Register" onclick="register()">
-           </div>
-         </form>
-       </div>
-     </div>
-   </div>
- </div> -->
-
- <div id="main">
+<div id="main">
    <div id="page1">
      <div id="nav">
        <img src="assets/WhatsApp_Image_2024-04-30_at_2.44.15_PM-removebg-preview.png" alt="" />
        <div class="nav-menu">
-         <h3>Home</h3>
-         <h3>Catagories</h3>
-         <h3>About</h3>
-         <h3>More+</h3>
+         <h3><a href="#page1">Home</a></h3>
+         <h3><a href="#page2">Catagories</a></h3>
+         <h3><a href="#page8">About</a></h3>
+         <h3><a href="#footer">More+</a></h3>
        </div>
        <div class="nav-icon">
          <i class="ion ion-search"></i>
@@ -123,7 +87,7 @@
        </div>
      </div>
    </div>
-   <div id="page3">
+   <div id="page3" class="row">
      <h1>Pre Workout</h1>
      <div class="page3-scroll">
        <div class="pre-workout-items" id="pre-workout">
@@ -162,7 +126,7 @@
             <img src="<?php echo $row['image'] ?>" alt=""/>
           </div>
           <h2 class="text-uppercase"><?php echo $row['name']?></h2>
-          <h3><?php echo number_format($row['price'],2)?> <i><?php echo number_format($row['cross_price'],2) ?></i></h3>
+          <h3><?php echo number_format($row['price'],2)?></h3>
           <button data-index="<?php echo $row['id'] ?>" class="btn creatine-powder"> 
           <h4 data-index="<?php echo $row['id'] ?>" class="creatine-powder">
             Add to cart
@@ -254,7 +218,7 @@
      </div>
    </div>
    <div id="page8">
-     <img src="/assets/WhatsApp_Image_2024-04-30_at_2.44.15_PM-removebg-preview.png" alt="">
+     <img src="./assets/WhatsApp_Image_2024-04-30_at_2.44.15_PM-removebg-preview.png" alt="">
      <p>Welcome to INDIGAIN ,where we’re dedicated to providing premium supplements for your health and wellness needs.
        Founded in 2024,our journey began with a passion for promoting healthy lifestyles. We believe in transparency
        and quality, offering a curated selection of supplements backed by rigorous testing and certifications. Our
