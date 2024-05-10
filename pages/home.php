@@ -96,9 +96,9 @@
         while($row = $products->fetch_assoc()):
         ?>
         <div class="item">
-          <div class="item-img">
+          <a href="?page=details&item=<?php echo $row['id'] ?>" class="item-img">
             <img src="<?php echo $row['image'] ?>" alt=""/>
-          </div>
+          </a>
           <h2 class="text-uppercase"><?php echo $row['name']?></h2>
           <h3><?php echo number_format($row['price'],2)?> <i><?php echo number_format($row['cross_price'],2) ?></i></h3>
           <button data-index="<?php echo $row['id'] ?>" class="btn pre-workout"> 
@@ -122,9 +122,9 @@
         while($row = $creatine->fetch_assoc()):
         ?>
         <div class="item">
-          <div class="item-img">
+          <a href="?page=details&item=<?php echo $row['id'] ?>" class="item-img">
             <img src="<?php echo $row['image'] ?>" alt=""/>
-          </div>
+          </a>
           <h2 class="text-uppercase"><?php echo $row['name']?></h2>
           <h3><?php echo number_format($row['price'],2)?></h3>
           <button data-index="<?php echo $row['id'] ?>" class="btn creatine-powder"> 
@@ -148,9 +148,9 @@
         while($row = $whey->fetch_assoc()):
         ?>
         <div class="item">
-          <div class="item-img">
+          <a href="?page=details&item=<?php echo $row['id'] ?>" class="item-img">
             <img src="<?php echo $row['image'] ?>" alt=""/>
-          </div>
+          </a>
           <h2 class="text-uppercase"><?php echo $row['name']?></h2>
           <h3><?php echo number_format($row['price'],2)?> <i><?php echo number_format($row['cross_price'],2) ?></i></h3>
           <buutton data-index="<?php echo $row['id'] ?>" class="btn whey-workout"> 
@@ -174,9 +174,9 @@
         while($row = $bcaa->fetch_assoc()):
         ?>
         <div class="item">
-          <div class="item-img">
+          <a href="?page=details&item=<?php echo $row['id'] ?>" class="item-img">
             <img src="<?php echo $row['image'] ?>" alt=""/>
-          </div>
+          </a>
           <h2 class="text-uppercase"><?php echo $row['name']?></h2>
           <h3><?php echo number_format($row['price'],2)?> <i><?php echo number_format($row['cross_price'],2) ?></i></h3>
           <button data-index="<?php echo $row['id'] ?>" class="btn bcaa"> 
@@ -200,9 +200,9 @@
         while($row = $weight->fetch_assoc()):
         ?>
         <div class="item">
-          <div class="item-img">
+          <a href="?page=details&item=<?php echo $row['id'] ?>" class="item-img">
             <img src="<?php echo $row['image'] ?>" alt=""/>
-          </div>
+          </a>
           <h2 class="text-uppercase"><?php echo $row['name']?></h2>
           <h3><?php echo number_format($row['price'],2)?> <i><?php echo number_format($row['cross_price'],2) ?></i></h3>
           <button data-index="<?php echo $row['id'] ?>" class="btn weight-gainer"> 
@@ -226,5 +226,6 @@
        of supplements and join us in our mission to support your wellness journey</p>
    </div>
  </div>
+ <?php include './footer.php' ?>
 
  <script src="./js/main.js"></script>

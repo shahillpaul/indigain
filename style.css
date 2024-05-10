@@ -1012,3 +1012,7 @@ form .btn input[type="submit"] {
     flex-direction: column;
     background-color: red;
 } */
+
+.item {
+    cursor: pointer !important;
+}

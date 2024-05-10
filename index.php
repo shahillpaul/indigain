@@ -18,7 +18,6 @@ include './php/db.config.php';
         } else {
           include('pages/home.php');
         }
-        include 'footer.php';
       ?>
     </main>
   </body>
