@@ -38,13 +38,8 @@
        </div>
        <h3>We believe in transpary and quality</h3>
        <div class="btn" id="btn" data-index="${index}">
-         <h4>Start Shopping</h4>
+         <h4><a href="#page2">Start Shopping</a></h4>
        </div>
-       <!-- <div class="vid-scroll">
-                    <div class="vids" id="vids">
-
-                       </div>
-                </div> -->
      </div>
    </div>
    <div id="page2">
