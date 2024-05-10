@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2024 at 05:33 PM
+-- Generation Time: May 10, 2024 at 09:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,24 +30,26 @@ SET time_zone = "+00:00";
 CREATE TABLE `cart` (
   `name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `uid` int(100) NOT NULL,
-  `product_id` int(100) NOT NULL
+  `product_id` int(100) NOT NULL,
+  `quantity` int(10) NOT NULL,
+  `weight` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`name`, `uid`, `product_id`) VALUES
-('AVVATAR micronized creatine monohydrate (100g)', 1, 8),
-('AVVATAR micronized creatine monohydrate (100g)', 2, 8),
-('AVVATAR micronized creatine monohydrate (100g)', 3, 8),
-('NAKPRO creatine monohydrate (100g)', 4, 9),
-('MUSCLE BLAZE CREAMP creatine monohydrate (100g)', 5, 10),
-('NAKPRO creatine monohydrate (100g)', 6, 9),
-('MUSCLE BLAZE CREAMP creatine monohydrate (100g)', 7, 10),
-('GNC PRO performance pre-workout (500g)', 8, 3),
-('MUSCLE ASYLUM F9 pre-workout (500g)', 9, 1),
-('BIG MUSCLES NUTRITION freak (500g)', 10, 2);
+INSERT INTO `cart` (`name`, `uid`, `product_id`, `quantity`, `weight`) VALUES
+('AVVATAR micronized creatine monohydrate (100g)', 1, 8, 4, 0),
+('AVVATAR micronized creatine monohydrate (100g)', 2, 8, 0, 0),
+('AVVATAR micronized creatine monohydrate (100g)', 3, 8, 0, 0),
+('NAKPRO creatine monohydrate (100g)', 4, 9, 0, 0),
+('MUSCLE BLAZE CREAMP creatine monohydrate (100g)', 5, 10, 0, 0),
+('NAKPRO creatine monohydrate (100g)', 6, 9, 0, 0),
+('MUSCLE BLAZE CREAMP creatine monohydrate (100g)', 7, 10, 0, 0),
+('GNC PRO performance pre-workout (500g)', 8, 3, 0, 0),
+('MUSCLE ASYLUM F9 pre-workout (500g)', 9, 1, 0, 0),
+('BIG MUSCLES NUTRITION freak (500g)', 10, 2, 0, 0);
 
 -- --------------------------------------------------------
 

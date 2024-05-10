@@ -121,7 +121,7 @@
                   <i class="ion ion-minus" id="m"></i>
                 </div>
               </div>
-              <a href="#" class="btn btn-success">Buy Now</a>
+              <a href="?page=add_to_cart" class="btn btn-success">Buy Now</a>
               <a href="#" class="btn btn-warning"><i class="ion ion-ios-cart fw-bold"></i></a>
             </div>
         </div>
