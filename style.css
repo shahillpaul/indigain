@@ -1032,13 +1032,18 @@ form .btn input[type="submit"] {
 }
 
 .sliderControls {
-    position: relative;
+    position: relative
+}
+.sliderControls button:nth-child(1) {
+    position: absolute;
     top: -40vh;
     left: 0;
-    display: flex;
-    justify-content: space-between;
-    margin: none;
-    padding: none;
+    /* width: 100vw; */
+}
+.sliderControls button:nth-child(2) {
+    position: absolute;
+    top: -40vh;
+    right: 0;
     /* width: 100vw; */
 }
 .sliderControls button {
