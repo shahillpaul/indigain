@@ -280,6 +280,10 @@ body {
     margin: 0px 20px;
 }
 
+.page3-scroll button, .page4-scroll button, .page5-scroll button, .page6-scroll button, .page7-scroll button {
+    cursor: pointer;
+}
+
 #page3 .page3-scroll {
     overflow-x: scroll;
     overflow-y: hidden;
@@ -1100,3 +1104,28 @@ form .btn input[type="submit"] {
     color: #ff0000;
     font-weight: bold;
 }
+
+.shop-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.item .btn {
+    width: 50% !important;
+    /* display: block !important; */
+    font-weight: bold !important;
+    color: #000 !important;
+    border-radius: 10px !important;
+}
+.shop-btn .buy-now {
+    background-color: #1a75ff !important;
+}
+
+/* height: 5vh;
+    width: 100%;
+    color: rgb(78, 78, 78);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(200, 255, 0); */

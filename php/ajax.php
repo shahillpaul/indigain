@@ -16,5 +16,11 @@ if($a == "removeCartItem"){
 	echo $save;
 }
 
+if($a == "updateCount"){
+	$save = $crud->updateCount();
+  if($save)
+  echo $save;
+}
+
 
 ob_end_flush();

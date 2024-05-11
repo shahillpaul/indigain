@@ -54,15 +54,22 @@
   #checkout {
     max-width: 100px;
   }
+
   .noItems {
     margin: 0px 40px;
     margin-top: 20vh;
   }
+
   .noItems h3 {
     text-align: center;
   }
+
   .noItems .diBtn button {
     width: 200px;
+  }
+
+  .ion {
+    cursor: pointer;
   }
 </style>
 
@@ -73,7 +80,7 @@
       <?php
       $total = 0;
       $cartItems = $conn->query("
-      SELECT cart.product_id, product.*, COUNT(cart.product_id) AS quantity
+      SELECT cart.*, product.*, COUNT(cart.product_id) AS quantity
       FROM cart 
       INNER JOIN product ON cart.product_id = product.id
       GROUP BY cart.product_id
@@ -82,14 +89,14 @@
     if($cartItems->num_rows == 0){
       $isCartEmpty = true;
     ?>
-    <div class="noItems">
-      <h3 class="fw-bold p-4">No items in the cart</h3>
-      <div class="d-flex gap-4 diBtn justify-content-center">
-        <button class="btn btn-primary" id="continue">Continue Shopping</button>
-        <button class="btn btn-primary" id="goBack">Go Back</button>
+      <div class="noItems">
+        <h3 class="fw-bold p-4">No items in the cart</h3>
+        <div class="d-flex gap-4 diBtn justify-content-center">
+          <button class="btn btn-primary" id="continue">Continue Shopping</button>
+          <button class="btn btn-primary" id="goBack">Go Back</button>
+        </div>
       </div>
-    </div>
-    <?php
+      <?php
     }
 
     while($row = $cartItems->fetch_assoc()): 
@@ -107,9 +114,10 @@
         </div>
 
         <div class="ms-auto d-flex flex-column justify-content-center align-items-center">
-          <div class="qtySelect" data-item-id="<?php echo $row['id']?>">
+          <div class="qtySelect">
             <i class="ion ion-minus"></i>
-            <input type="number" name="qty" value="<?php echo $qtyText ?>" max="10" />
+            <input data-item-uid="<?php echo $row['uid']?>" id="qtyin" type="number" name="qty"
+              value="<?php echo $qtyText ?>" max="10" />
             <i class="ion ion-plus"></i>
           </div>
 
@@ -120,7 +128,8 @@
       <?php endwhile; ?>
     </div>
   </div>
-  <div class="d-flex justify-content-around border-top border-dark border-2 p-1 align-items-center <?php if($isCartEmpty) echo 'visually-hidden' ?>">
+  <div
+    class="d-flex justify-content-around border-top border-dark border-2 p-1 align-items-center <?php if($isCartEmpty) echo 'visually-hidden' ?>">
     <h5 class="total ms-4"> Total Price: Rs. <?php echo $total?></h5>
     <div class="d-flex gap-2">
       <a href="#" class="btn btn-success" id="checkout">Checkout</a>
@@ -130,12 +139,12 @@
 </div>
 
 <script>
-let arrayBtn0 = ['#goBack','#continue']
-arrayBtn0.forEach(btn => {
-  $(btn).on('click', function(){
-    location.href = '?page=home'
+  let arrayBtn0 = ['#goBack', '#continue']
+  arrayBtn0.forEach(btn => {
+    $(btn).on('click', function () {
+      location.href = '?page=home'
+    })
   })
-})
 
   $('.removeItem').on('click', function () {
     // console.log($(this).data('item-id'))
@@ -170,4 +179,40 @@ arrayBtn0.forEach(btn => {
       }
     })
   })
+
+  let qi = ['.ion-plus', '.ion-minus']
+  let qtyInput = $('#qtyin')
+  var count;
+
+  $(qi[0]).on('click', function () {
+    // 1 = add, 0= minus
+    var qty = qtyInput.data('item-uid')
+    var count = 1
+    sendCount(qty, count)
+  })
+
+  $(qi[1]).on('click', function () {
+    // 1 = add, 0= minus
+    var qty = qtyInput.data('item-uid')
+    var count = 0
+    sendCount(qty, count)
+  })
+
+  function sendCount(uid, count) {
+    $.ajax({
+      url: './php/ajax.php?a=updateCount',
+      data: {
+        uid: uid,
+        count: count
+      },
+      method: 'POST',
+      success: function (res) {
+        if (res) {
+          // console.log('Success')
+          location.reload()
+        }
+        // console.log(res)
+      }
+    })
+  }
 </script>

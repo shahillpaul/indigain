@@ -30,7 +30,7 @@ while($row = $cartData->fetch_assoc()){
           <i class="ion ion-ios-cart" id="cart"></i>
         </a>
         <a href="#" class="icon-btn">
-        <i class="ion ion-person"></i>
+        <i class="ion ion-person" style="color: red"></i>
         </a>
        </div>
 
@@ -117,11 +117,14 @@ while($row = $cartData->fetch_assoc()){
           </a>
           <h2 class="text-uppercase"><?php echo $row['name']?></h2>
           <h3><?php echo number_format($row['price'],2)?> <i><?php echo number_format($row['cross_price'],2) ?></i></h3>
-          <button data-index="<?php echo $row['id'] ?>" class="btn pre-workout"> 
-          <h4 data-index="<?php echo $row['id'] ?>" class="pre-workout">
-            Add to cart
-          </h4>
-          </button>
+          <div class="shop-btn">
+            <button data-index="<?php echo $row['id'] ?>" class="btn add-to-cart"> 
+              Add to cart
+            </button>
+            <button class="btn buy-now" data-index="<?php echo $row['id'] ?>">
+              Buy
+            </button>
+          </div>
         </div>
         <?php
         endwhile;
@@ -147,11 +150,14 @@ while($row = $cartData->fetch_assoc()){
           </a>
           <h2 class="text-uppercase"><?php echo $row['name']?></h2>
           <h3><?php echo number_format($row['price'],2)?></h3>
-          <button data-index="<?php echo $row['id'] ?>" class="btn creatine-powder"> 
-          <h4 data-index="<?php echo $row['id'] ?>" class="creatine-powder">
-            Add to cart
-          </h4>
-          </button>
+          <div class="shop-btn">
+            <button data-index="<?php echo $row['id'] ?>" class="btn add-to-cart"> 
+              Add to cart
+            </button>
+            <button class="btn buy-now" data-index="<?php echo $row['id'] ?>">
+              Buy
+            </button>
+          </div>
         </div>
         <?php
         endwhile;
@@ -177,11 +183,14 @@ while($row = $cartData->fetch_assoc()){
           </a>
           <h2 class="text-uppercase"><?php echo $row['name']?></h2>
           <h3><?php echo number_format($row['price'],2)?> <i><?php echo number_format($row['cross_price'],2) ?></i></h3>
-          <buutton data-index="<?php echo $row['id'] ?>" class="btn whey-workout"> 
-          <h4 data-index="<?php echo $row['id'] ?>" class="whey-workout">
-            Add to cart
-          </h4>
-          </buutton>
+          <div class="shop-btn">
+            <button data-index="<?php echo $row['id'] ?>" class="btn add-to-cart"> 
+              Add to cart
+            </button>
+            <button class="btn buy-now" data-index="<?php echo $row['id'] ?>">
+              Buy
+            </button>
+          </div>
         </div>
         <?php
         endwhile;
@@ -207,11 +216,14 @@ while($row = $cartData->fetch_assoc()){
           </a>
           <h2 class="text-uppercase"><?php echo $row['name']?></h2>
           <h3><?php echo number_format($row['price'],2)?> <i><?php echo number_format($row['cross_price'],2) ?></i></h3>
-          <button data-index="<?php echo $row['id'] ?>" class="btn bcaa"> 
-          <h4 data-index="<?php echo $row['id'] ?>" class="bcaa">
-            Add to cart
-          </h4>
-          </button>
+          <div class="shop-btn">
+            <button data-index="<?php echo $row['id'] ?>" class="btn add-to-cart"> 
+              Add to cart
+            </button>
+            <button class="btn buy-now" data-index="<?php echo $row['id'] ?>">
+              Buy
+            </button>
+          </div>
         </div>
         <?php
         endwhile;
@@ -237,11 +249,14 @@ while($row = $cartData->fetch_assoc()){
           </a>
           <h2 class="text-uppercase"><?php echo $row['name']?></h2>
           <h3><?php echo number_format($row['price'],2)?> <i><?php echo number_format($row['cross_price'],2) ?></i></h3>
-          <button data-index="<?php echo $row['id'] ?>" class="btn weight-gainer"> 
-          <h4 data-index="<?php echo $row['id'] ?>" class="weight-gainer">
-            Add to cart
-          </h4>
-          </button>
+          <div class="shop-btn">
+            <button data-index="<?php echo $row['id'] ?>" class="btn add-to-cart"> 
+              Add to cart
+            </button>
+            <button class="btn buy-now" data-index="<?php echo $row['id'] ?>">
+              Buy
+            </button>
+          </div>
         </div>
         <?php
         endwhile;

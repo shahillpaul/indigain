@@ -1,8 +1,15 @@
 $(document).ready(function() {
-  $('button [data-index]').on('click', function(){
+  $('.add-to-cart').on('click', function(){
     var index = $(this).attr('data-index');
     // console.log(index);
     saveToCart(index);
+  })
+
+  // buy
+  $('.buy-now').on('click', function(){
+    var index = $(this).attr('data-index');
+    // console.log(index);
+    buyNow(index);
   })
 
   // scroll
@@ -69,6 +76,11 @@ function saveToCart(productID){
     }
   })
   // showAlert()
+}
+
+function buyNow(productID){
+  var id = productID
+  location.href = `?page=checkout&id=${id}`
 }
 
 function showAlert(msg){

@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 Class Act {
   private $db;
   public function __construct(){
@@ -48,7 +47,33 @@ Class Act {
     if($s){
       return 1;
     }else{
-      return 'bad';
+      return '0';
+    }
+  }
+
+  function updateCount(){
+    extract($_POST);
+    $o = $count;
+    if($o == 0){
+      $limit = $this->db->query("SELECT * FROM cart");
+      $limit = $limit->num_rows;
+      if($limit > 1) {
+        $s = $this->db->query("DELETE FROM cart WHERE uid = '$uid' ");
+      }
+    } else if($o == 1 && $limit>=10) {
+      $p = $this->db->query("SELECT * FROM cart WHERE uid = '$uid' ");
+        if($p){
+          while($row = $p->fetch_assoc()){
+            $product_id = $row['product_id'];
+            $name = $row['name'];
+            $s = $this->db->query("INSERT INTO cart (product_id, name) VALUES ('$product_id', '$name')");
+          }
+        }
+    }
+    if($s){
+      return 1;
+    }else{
+      return 0;
     }
   }
 
