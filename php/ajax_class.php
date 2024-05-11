@@ -42,4 +42,14 @@ Class Act {
       }
   }
 
+  function removeCartItem(){
+    extract($_POST);
+    $s = $this->db->query("DELETE FROM cart WHERE product_id = '$id' ");
+    if($s){
+      return 1;
+    }else{
+      return 'bad';
+    }
+  }
+
 }

@@ -1,51 +1,69 @@
-<link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css" />
 <style>
-    .card {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 60vw;
-      height: 80vh;
-    }
-    .card-body {
-      position: relative;
-      overflow-y: auto;
-      overflow-x: hidden ;
-    }
-    html,
-    body {
-      background-color: #212121;
-    }
-    img {
-      width: 80px;
-      height: auto;
+  .card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    height: 80vh;
+  }
 
-    }
-    .cart-item {
-      margin: 20px 20px;
-    }
-    input[type="number"]::-webkit-inner-spin-button,
-    input[type="number"]::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
+  .card-body {
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 
-    input[type="number"] {
-        -moz-appearance: textfield; /* Firefox */
-        width: 24px; height: 24px;
-        text-align: center;
-        border: 1px solid black;
-        margin: 0px 5px
-    }
-    .total {
-      color: red;
-      font-weight: 800;
-    }
-    #checkout {
-      max-width: 100px;
-    }
+  html,
+  body {
+    background-color: #212121;
+  }
 
+  img {
+    width: 80px;
+    height: auto;
+
+  }
+
+  .cart-item {
+    margin: 20px 20px;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+    /* Firefox */
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    border: 1px solid black;
+    margin: 0px 5px
+  }
+
+  .total {
+    color: red;
+    font-weight: 800;
+  }
+
+  #checkout {
+    max-width: 100px;
+  }
+  .noItems {
+    margin: 0px 40px;
+    margin-top: 20vh;
+  }
+  .noItems h3 {
+    text-align: center;
+  }
+  .noItems .diBtn button {
+    width: 200px;
+  }
 </style>
 
 <div class="card">
@@ -61,34 +79,48 @@
       GROUP BY cart.product_id
     ");
 
+    if($cartItems->num_rows == 0){
+      $isCartEmpty = true;
+    ?>
+    <div class="noItems">
+      <h3 class="fw-bold p-4">No items in the cart</h3>
+      <div class="d-flex gap-4 diBtn justify-content-center">
+        <button class="btn btn-primary" id="continue">Continue Shopping</button>
+        <button class="btn btn-primary" id="goBack">Go Back</button>
+      </div>
+    </div>
+    <?php
+    }
+
     while($row = $cartItems->fetch_assoc()): 
       $qty = $row['quantity'];
       $qtyText = ($qty > 1) ? $qty : 1;
       $price = $row['price'] * $qty;
       $total += $price;
+
       ?>
       <div class="d-flex cart-item align-items-center">
-        <img src="<?php echo $row['image']?>" alt=""/>
+        <img src="<?php echo $row['image']?>" alt="" />
         <div class="d-flex flex-column ms-4">
           <h5 class="mb-1 fw-bold"><?php echo $row['name']?></h5>
           <h4 class="text-danger">Rs. <?php echo $price?></h4>
         </div>
-        
+
         <div class="ms-auto d-flex flex-column justify-content-center align-items-center">
-          <div class="qtySelect">
+          <div class="qtySelect" data-item-id="<?php echo $row['id']?>">
             <i class="ion ion-minus"></i>
-            <input type="number" name="qty" value="<?php echo $qtyText ?>" max="10"/>
+            <input type="number" name="qty" value="<?php echo $qtyText ?>" max="10" />
             <i class="ion ion-plus"></i>
           </div>
 
-          <button class="btn btn-secondary mt-2">Remove Item</button>
+          <button class="btn btn-secondary mt-2 removeItem" data-item-id="<?php echo $row['id'] ?>">Remove Item</button>
         </div>
         <!-- Add more product details as needed -->
       </div>
-<?php endwhile; ?>
+      <?php endwhile; ?>
     </div>
   </div>
-  <div class="d-flex justify-content-around border-top border-dark border-2 p-1 align-items-center">
+  <div class="d-flex justify-content-around border-top border-dark border-2 p-1 align-items-center <?php if($isCartEmpty) echo 'visually-hidden' ?>">
     <h5 class="total ms-4"> Total Price: Rs. <?php echo $total?></h5>
     <div class="d-flex gap-2">
       <a href="#" class="btn btn-success" id="checkout">Checkout</a>
@@ -96,3 +128,46 @@
     </div>
   </div>
 </div>
+
+<script>
+let arrayBtn0 = ['#goBack','#continue']
+arrayBtn0.forEach(btn => {
+  $(btn).on('click', function(){
+    location.href = '?page=home'
+  })
+})
+
+  $('.removeItem').on('click', function () {
+    // console.log($(this).data('item-id'))
+    var id = $(this).data('item-id');
+    var name = $(this).closest('.cart-item').find('h5').text();
+    $.ajax({
+      url: './php/ajax.php?a=removeCartItem',
+      data: {
+        id: id
+      },
+      method: 'POST',
+      success: function (res) {
+        if (res == 1) {
+          // console.log('Success')
+          // location.reload()
+          Swal.fire({
+            iconHtml: '<i class="ion ion-ios-cart-outline" style="color: green"></i>',
+            text: `Removed ${name}`,
+            showConfirmButton: false,
+            toast: true,
+            position: 'top-end',
+            timer: 1500,
+            // backdrop: true,
+            color: '#ffffff',
+            background: '#212121'
+          })
+          setTimeout(() => {
+            location.reload()
+          }, 1000);
+        }
+        // console.log(res)
+      }
+    })
+  })
+</script>

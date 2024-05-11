@@ -130,7 +130,6 @@ body {
     align-items: center;
     flex-direction: column;
     justify-content: center;
-
 }
 
 #page1 .landing .heading {
@@ -1070,12 +1069,13 @@ form .btn input[type="submit"] {
 
 #scrollTop {
     position: fixed;
-    top: 50%;
+    top: 80%;
     right: 0;
     width: 80px;
     height: 80px;
-    background-color: transparent;
-    border :1px solid #000;
+    background-color: #ffffff;
+    border :1px solid #000000;
+    display: none;
 }
 
 #scrollTop i {
@@ -1086,4 +1086,17 @@ form .btn input[type="submit"] {
 #scrollTop:hover i {
     scale: 5;
     opacity: .5;
+}
+
+.icon-btn {
+    position: relative
+}
+
+.icon-btn .cart-items-number {
+    position: absolute;
+    top: -18px;
+    right: -5px;
+    font-size: 1em;
+    color: #ff0000;
+    font-weight: bold;
 }

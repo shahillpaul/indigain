@@ -1,3 +1,16 @@
+<?php
+$cartItems = 0;
+$cartData = $conn->query("
+SELECT cart.product_id, product.*, COUNT(cart.product_id) AS quantity
+FROM cart 
+INNER JOIN product ON cart.product_id = product.id
+GROUP BY cart.product_id
+");
+
+while($row = $cartData->fetch_assoc()){
+  $cartItems++ ;
+}
+?>
 <div id="main">
    <div id="page1">
      <div id="nav">
@@ -9,9 +22,16 @@
          <h3><a href="#footer">More+</a></h3>
        </div>
        <div class="nav-icon">
-         <i class="ion ion-search"></i>
-         <i class="ion ion-ios-cart" id="cart"></i>
-         <i class="ion ion-person"></i>
+        <a href="#" class="icon-btn">
+          <i class="ion ion-search"></i>
+        </a>
+         <a href="?page=add_to_cart" class="icon-btn">
+          <span class="cart-items-number"><?php echo $cartItems?></span>
+          <i class="ion ion-ios-cart" id="cart"></i>
+        </a>
+        <a href="#" class="icon-btn">
+        <i class="ion ion-person"></i>
+        </a>
        </div>
 
        <div class="cart-exp" id="expand">
@@ -42,6 +62,7 @@
        </div>
      </div>
    </div>
+   <!-- <div style="height: 100vh; width: 100vw;"></div> -->
    <div id="page2">
      <h1>Catagories</h1>
      <div class="cat-item">
@@ -234,7 +255,7 @@
    </div>
    <div id="page8">
      <img src="./assets/WhatsApp_Image_2024-04-30_at_2.44.15_PM-removebg-preview.png" alt="">
-     <p>Welcome to INDIGAIN ,where we’re dedicated to providing premium supplements for your health and wellness needs.
+     <p style="width: 80vw; font-size: 1em; text-align: justify">Welcome to INDIGAIN ,where we’re dedicated to providing premium supplements for your health and wellness needs.
        Founded in 2024,our journey began with a passion for promoting healthy lifestyles. We believe in transparency
        and quality, offering a curated selection of supplements backed by rigorous testing and certifications. Our
        customer-focused approach ensures that you receive exceptional service every step of the way. Explore our range
