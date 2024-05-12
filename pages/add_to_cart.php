@@ -74,6 +74,7 @@
 </style>
 
 <div class="card">
+
   <h2 class="text-center border-2 border-bottom border-dark">Cart</h2>
   <div class="card-body">
     <div>
@@ -104,7 +105,6 @@
       $qtyText = ($qty > 1) ? $qty : 1;
       $price = $row['price'] * $qty;
       $total += $price;
-
       ?>
       <div class="d-flex cart-item align-items-center">
         <img src="<?php echo $row['image']?>" alt="" />
@@ -181,24 +181,27 @@
   })
 
   let qi = ['.ion-plus', '.ion-minus']
-  let qtyInput = $('#qtyin')
-  var count;
+  // let qtyInput = $('#qtyin')
+  // var count;
 
   $(qi[0]).on('click', function () {
     // 1 = add, 0= minus
-    var qty = qtyInput.data('item-uid')
+    var qty = $(this).closest('.qtySelect').find('input').data('item-uid')
+    // console.log(qty)
     var count = 1
     sendCount(qty, count)
   })
 
   $(qi[1]).on('click', function () {
     // 1 = add, 0= minus
-    var qty = qtyInput.data('item-uid')
+    var qty = $(this).closest('.qtySelect').find('input').data('item-uid')
+    // console.log(qty)
     var count = 0
     sendCount(qty, count)
   })
 
   function sendCount(uid, count) {
+    console.log(uid, count)
     $.ajax({
       url: './php/ajax.php?a=updateCount',
       data: {
@@ -215,4 +218,6 @@
       }
     })
   }
+
 </script>
+ 

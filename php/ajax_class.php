@@ -12,18 +12,6 @@ Class Act {
     ob_end_flush();
   }
 
-  function save_course(){
-		extract($_POST);
-		$data = " course = '$course' ";
-			if(empty($id)){
-				$save = $this->db->query("INSERT INTO courses set $data");
-			}else{
-				$save = $this->db->query("UPDATE courses set $data where id = $id");
-			}
-		if($save)
-			return 1;
-	}
-
   function addToCart(){
     extract($_POST);
     $name = $this->db->query("SELECT name FROM product WHERE id = '$id' ");
@@ -65,6 +53,7 @@ Class Act {
             $product_id = $row['product_id'];
             $name = $row['name'];
             $s = $this->db->query("INSERT INTO cart (product_id, name) VALUES ('$product_id', '$name')");
+            return $s;
           }
         }
     }
@@ -74,5 +63,56 @@ Class Act {
       return 0;
     }
   }
+
+
+  function login(){
+    extract($_POST);		
+    $qry = $this->db->query("SELECT * FROM users where name = '".$username."' and password = '".$password."' ");
+    if($qry->num_rows > 0){
+      foreach ($qry->fetch_array() as $key => $value) {
+        if($key != 'passwors' && !is_numeric($key))
+          $_SESSION['login_'.$key] = $value;
+      }
+      if($_SESSION['login_type'] != 1){
+        foreach ($_SESSION as $key => $value) {
+          unset($_SESSION[$key]);
+        }
+        return 2 ;
+        exit;
+      }
+        return 1;
+    } else if($username==''){
+      return 100;
+    } else if ($password==''){
+      return 101;
+    } else {
+      return 3;
+    }
+}
+
+function register(){
+  extract($_POST);
+  // $data = " name = '".$firstname.' '.$lastname."' ";
+  // $data .= ", username = '$email' ";
+  // $data .= ", password = '".md5($password)."' ";
+  $chk = $this->db->query("SELECT * FROM users where name = '$regUsername' ")->num_rows;
+  if($chk > 0){
+    return 2;
+    exit;
+  }
+    $save = $this->db->query("INSERT INTO users (name, password) VALUES ('$regUsername, '$$regPassword')  ");
+  if($save){
+    $uid = $this->db->insert_id;
+    foreach($_POST as $k => $v){
+      if($k =='password')
+        continue;
+      if(empty($data) && !is_numeric($k) )
+        $data = " $k = '$v' ";
+      else
+        $data .= ", $k = '$v' ";
+    }
+  }
+}
+
 
 }
