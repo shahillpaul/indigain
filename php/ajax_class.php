@@ -54,13 +54,11 @@ Class Act {
   function updateCount(){
     extract($_POST);
     $o = $count;
-    if($o == 0){
-      $limit = $this->db->query("SELECT * FROM cart");
-      $limit = $limit->num_rows;
-      if($limit > 1) {
-        $s = $this->db->query("DELETE FROM cart WHERE uid = '$uid' ");
-      }
-    } else if($o == 1 && $limit>=10) {
+    $limit = $this->db->query("SELECT * FROM cart");
+    $limit = $limit->num_rows;
+    if($o == 0 && $limit > 1){
+      $s = $this->db->query("DELETE FROM cart WHERE uid = '$uid' ");
+    } else if ($o == 1 && $limit < 10) {
       $p = $this->db->query("SELECT * FROM cart WHERE uid = '$uid' ");
         if($p){
           while($row = $p->fetch_assoc()){
