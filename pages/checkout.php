@@ -78,6 +78,9 @@
   .buttons button {
     width: 100px
   }
+  .product-title {
+    font-size: 18px
+  }
 </style>
 
 <?php
@@ -173,8 +176,8 @@ while($row = $user->fetch_assoc()){
             ?>
             <div class="d-flex align-items-center justify-content-start">
               <img src="<?php echo $row['image']?>">
-              <div>
-                <h5><?php echo $row['name']?></h5>
+              <div class="d-flex flex-column gap-4">
+                <span class="product-title"><?php echo $row['name']?></span>
                 <!-- <span><?php echo $row['id']?></span> -->
                 <div class="d-flex justify-content-between align-items-center">
                   <span>Rs. <span id="price" data-price="<?php echo $row['price']?>"></span></span>

@@ -17,8 +17,8 @@
       background-color: #212121;
     }
     img{
-      width: 120px;
-      height: auto;
+      width: auto;
+      height: 180px;
     }
     .card-title{
       color: #000000;
@@ -46,13 +46,14 @@
       height: 10px;
       width: 40px
     }
-    .btn.btn-warning {
-      width: 60px;
+    .cck .btn {
+      width: 20%;
       /* position: absolute; */
       /* right: 40px */
     }
-    .btn.btn-warning i {
-    scale: 1.4
+    .btn i {
+    scale: 1.4;
+    margin-right: 8px
     }
 
     input[type="number"]::-webkit-inner-spin-button,
@@ -107,12 +108,12 @@
 
               foreach($formattedWeight as $w) {
               ?>
-              <button class="btn btn-dark m-2" href="" style="max-width: 80px;"><?php echo $w ?></button>
+              <button class="btn btn-dark" href="" style="max-width: 80px;"><?php echo $w ?></button>
               <?php
               }
               ?>
             </div>
-            <div class="d-flex mt-4 justify-content-around align-items-center">
+            <div class="d-flex mt-4 justify-content-around align-items-center cck">
               <div class="d-flex align-items-center gap-2">
                 <label>Quantity</label>
                 <input type="number" name="qty" value="1" id="qtyInput"/>
@@ -121,8 +122,13 @@
                   <i class="ion ion-minus" id="m"></i>
                 </div>
               </div>
-              <a href="?page=add_to_cart" class="btn btn-success">Buy Now</a>
-              <a href="#" class="btn btn-warning"><i class="ion ion-ios-cart fw-bold"></i></a>
+              <a href="?page=checkout&id=<?php echo $pid?>" class="btn btn-success">
+                <i class="ion ion-bag"></i> Buy Now
+              </a>
+              <button class="btn btn-warning atc" data-item-id="<?php echo $pid?>">
+                <i class="ion ion-ios-cart fw-bold"></i>
+                Add to cart
+              </button>
             </div>
         </div>
       </div>
@@ -149,5 +155,14 @@ endwhile;
                 qtyInput.val(currentQty - 1);
             }
         });
+
+        // atc button logic
+        $('.atc').on('click', function(){
+          var pid = $(this).data('item-id')
+        })
+
+        // qty btn logic
+
+        // weight logic
     });
 </script>
