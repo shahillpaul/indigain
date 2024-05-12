@@ -145,7 +145,7 @@
     let data = $(this).serialize()
     console.log(data)
     sendRequest('signin',data)
-    location.reload()
+    // location.href = '?page=home'
   })
 
   // signup form 1
@@ -159,7 +159,7 @@
     let data = $(this).serialize()
     console.log(data)
     sendRequest('signup-1',data)
-    location.reload()
+    // location.reload()
   })
 
   // signup form 2
@@ -168,9 +168,7 @@
     let data = $(this).serialize()
     console.log(data)
     sendRequest('signup-2',data)
-    setTimeout(function(){
-      location.reload()
-    },1000)
+    // location.href = '?page=home'
   })
 
   // signin option
@@ -196,6 +194,7 @@
       method: 'POST',
       success: function(res){
         console.log(res)
+        location.href = '?page=home'
       },
       error: function(err){
         console.log(err)

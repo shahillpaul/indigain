@@ -33,3 +33,7 @@ include './php/db.config.php';
     </main>
   </body>
 </html>
+
+<?php
+session_unset();
+?>
