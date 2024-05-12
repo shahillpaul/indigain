@@ -73,7 +73,7 @@ Class Act {
           $_SESSION['login_'.$k] = $v;
         }
       }
-      return 1;
+      return "Login successful";
     } else if ($username == '' && $password == ''){
       return "Please enter the username and password";
     } else if ($password == ''){
@@ -122,6 +122,7 @@ Class Act {
     }
   }
 
+<<<<<<< HEAD
   function signout(){
     session_destroy();
     foreach ($_SESSION as $key => $value) {
@@ -130,4 +131,7 @@ Class Act {
 		header("location: ?page=login");
     return 1;
   }
+=======
+
+>>>>>>> parent of d71c8f1 (a)
 }

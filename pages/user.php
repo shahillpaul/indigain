@@ -2,6 +2,7 @@
 include './php/auth.php';
 ?>
 <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css" />
+<<<<<<< HEAD
 
 <style>
   .card {
@@ -224,3 +225,6 @@ while($row = $user->fetch_assoc()){
     })
   })
 </script>
+=======
+ 
+>>>>>>> parent of d71c8f1 (a)

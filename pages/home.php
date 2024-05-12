@@ -18,7 +18,6 @@ while($row = $cartData->fetch_assoc()){
   $cartItems++ ;
 }
 ?>
-
 <div id="main">
    <div id="page1">
      <div id="nav">
