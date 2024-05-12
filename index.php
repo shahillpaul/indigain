@@ -11,6 +11,14 @@ include './php/db.config.php';
       ::-webkit-scrollbar{
         display: none !important;
       }
+      * {
+        user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+      }
     </style>
     <main>
       <?php 
