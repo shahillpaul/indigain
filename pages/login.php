@@ -1,6 +1,6 @@
 <?php
     if(isset($_SESSION['login_id']))
-    header('location:./?page=home');
+    header('location: ?page=home');
   ?>
 <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css" />
 <style>
@@ -145,6 +145,7 @@
     let data = $(this).serialize()
     console.log(data)
     sendRequest('signin',data)
+    location.reload()
   })
 
   // signup form 1
@@ -158,6 +159,7 @@
     let data = $(this).serialize()
     console.log(data)
     sendRequest('signup-1',data)
+    location.reload()
   })
 
   // signup form 2
