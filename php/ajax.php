@@ -22,16 +22,22 @@ if($a == "updateCount"){
   echo $save;
 }
 
-if($a == "login"){
-	$save = $crud->login();
-	if($save)
-	echo $save;
+if($a == "signin"){
+	$save = $crud->signin();
+  if($save)
+    echo $save;
 }
 
-if($a == "register"){
-	$save = $crud->register();
-	if($save)
-		echo $save;
+if($a == "signup-1"){
+	$save = $crud->signup_1();
+  if($save)
+    echo $save;
+}
+
+if($a == "signup-2"){
+	$save = $crud->signup_2();
+  if($save)
+    echo $save;
 }
 
 ob_end_flush();

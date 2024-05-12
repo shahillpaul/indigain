@@ -64,55 +64,63 @@ Class Act {
     }
   }
 
-
-  function login(){
-    extract($_POST);		
-    $qry = $this->db->query("SELECT * FROM users where name = '".$username."' and password = '".$password."' ");
-    if($qry->num_rows > 0){
-      foreach ($qry->fetch_array() as $key => $value) {
-        if($key != 'passwors' && !is_numeric($key))
-          $_SESSION['login_'.$key] = $value;
-      }
-      if($_SESSION['login_type'] != 1){
-        foreach ($_SESSION as $key => $value) {
-          unset($_SESSION[$key]);
+  function signin(){
+    extract($_POST);
+    $query = $this->db->query("SELECT * FROM users WHERE name = '$username' AND password = '$password'");
+    if($query->num_rows > 0){
+      foreach($query->fetch_array() as $k => $v){
+        if($k != 'password' && !is_numeric($k)){
+          $_SESSION['login_'.$k] = $v;
         }
-        return 2 ;
-        exit;
       }
-        return 1;
-    } else if($username==''){
-      return 100;
-    } else if ($password==''){
-      return 101;
-    } else {
-      return 3;
+      return "Login successful";
+    } else if ($username == '' && $password == ''){
+      return "Please enter the username and password";
+    } else if ($password == ''){
+      return "Please enter a password";
+    } else if ($username == ''){
+      return "Please enter a username";
     }
-}
+  }
 
-function register(){
-  extract($_POST);
-  // $data = " name = '".$firstname.' '.$lastname."' ";
-  // $data .= ", username = '$email' ";
-  // $data .= ", password = '".md5($password)."' ";
-  $chk = $this->db->query("SELECT * FROM users where name = '$regUsername' ")->num_rows;
-  if($chk > 0){
-    return 2;
-    exit;
-  }
-    $save = $this->db->query("INSERT INTO users (name, password) VALUES ('$regUsername, '$$regPassword')  ");
-  if($save){
-    $uid = $this->db->insert_id;
-    foreach($_POST as $k => $v){
-      if($k =='password')
-        continue;
-      if(empty($data) && !is_numeric($k) )
-        $data = " $k = '$v' ";
-      else
-        $data .= ", $k = '$v' ";
+  function signup_1(){
+    extract($_POST);
+
+    $d = "first_name = '$first_name',";
+    $d.= "last_name = '$last_name',";
+    $d .= "email = '$email',";
+    $d.= "contact_number = '$phone',";
+    $d.= "state = '$state',";
+    $d.= "city = '$city',";
+    $d.= "pin_code = '$pin'";
+
+    $query = $this->db->query("SELECT * FROM customer WHERE email = '$email' AND contact_number = '$phone'");
+    if($query->num_rows > 0){
+      return "User already exists";
+    }
+    $s = $this->db->query("INSERT INTO customer SET ".$d);
+    if($s){
+      return 1;
+    }else{
+      return 0;
     }
   }
-}
+
+  function signup_2(){
+    extract($_POST);
+    $query = $this->db->query("SELECT * FROM users WHERE name = '$username'");
+    if($query->num_rows > 0){
+      return "User already exists";
+    }
+    $d = "name = '$username',";
+    $d.= "password =  '$password'";
+    $s = $this->db->query("INSERT INTO users SET ".$d);
+    if($s){
+      return 1;
+    }else{
+      return 0;
+    }
+  }
 
 
 }
