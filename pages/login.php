@@ -1,7 +1,4 @@
-<?php
-    if(isset($_SESSION['login_id']))
-    header('location: ?page=home');
-  ?>
+
 <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css" />
 <style>
   .card {
@@ -55,7 +52,17 @@
 
 <div class=" container p-2">
 
+  <div class="d-flex option-control justify-content-center gap-2 pt-3">
+    <!-- signin -->
+    <div>
+      <button class="btn btn-dark" id="signin-btn">Signin</button>
+    </div>
 
+    <!-- signup -->
+    <div>
+      <button class="btn btn-outline-dark" id="signup-btn">Signup</button>
+    </div>
+  </div>
 
   <!-- signin -->
   <div class="card signin shadow">
@@ -118,7 +125,7 @@
   </div>
 </div>
 
-<!-- <script>
+<script>
   let methodBtnContainer = $('.option-control')
   let methodBtns = ['#signin-btn', '#signup-btn']
   let methodCards = ['.signin', '.signup', '.signup-account']
@@ -227,33 +234,4 @@
       }
     })
   }
-</script> -->
-
-<script>
-  $('#signin-form').on('submit', function(e) {
-    e.preventDefault();
-    var data = $(this).serialize();
-    var formData = $(this).serializeArray();
-    var username = formData[0].value;
-    var password = formData[1].value;
-
-    if (!username || !password) {
-        alert("Username and password are required.");
-    } else {
-        // $(this).off('submit').submit();
-        $.ajax({
-            type: 'POST',
-            url: './php/ajax.php?a=save',
-            data: data,
-            success: function(data) {
-                if (data == 1) {
-                    location.href = '?page=home';
-                } else {
-                    alert("Invalid username or password.");
-                }
-            }
-        });
-    }
-});
-
 </script>

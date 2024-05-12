@@ -1,11 +1,4 @@
 <?php
-include './php/auth.php';
-if(isset($_SESSION['login_id'])){
-  $isLogin = true;
-} else {
-  $isLogin = false;
-}
-
 $cartItems = 0;
 $cartData = $conn->query("
 SELECT cart.product_id, product.*, COUNT(cart.product_id) AS quantity
@@ -37,7 +30,7 @@ while($row = $cartData->fetch_assoc()){
           <span class="cart-items-number"><?php echo $cartItems?></span>
           <i class="ion ion-ios-cart" id="cart"></i>
         </a>
-        <a href="#" class="icon-btn">
+        <a href="?page=user" class="icon-btn">
         <i class="ion ion-person" style="color: <?php 
         if ($isLogin){
           echo 'green';
