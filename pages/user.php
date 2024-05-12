@@ -183,8 +183,7 @@ while($row = $user->fetch_assoc()){
     </div>
   </div>
   <div class="d-flex p-4 justify-content-end align-items-center gap-4 buttons">
-    <button class="btn btn-back btn-danger">Go back</button>
-    <button class="btn btn-checkout btn-primary">Checkout</button>
+    <button class="btn btn-primary btn-logout">Logout</button>
   </div>
 </div>
 
@@ -221,6 +220,12 @@ while($row = $user->fetch_assoc()){
       confirmButtonColor: '#3085d6',
     }).then(res=>{
       location.href = '?page=home'
+    })
+  })
+
+  $('.btn-logout').on('click', function(){
+    $.ajax({
+      url: './php/'
     })
   })
 </script>
