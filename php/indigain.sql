@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2024 at 06:33 PM
+-- Generation Time: May 12, 2024 at 08:38 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,6 +34,16 @@ CREATE TABLE `cart` (
   `quantity` int(10) NOT NULL,
   `weight` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`name`, `uid`, `product_id`, `quantity`, `weight`) VALUES
+('OPTIMUM NUTRITION Gold Standard Whey Protein', 139, 14, 0, 0),
+('BIG MUSCLES Gold Whey Protein', 140, 13, 0, 0),
+('BIG MUSCLES Gold Whey Protein', 141, 13, 0, 0),
+('OPTIMUM NUTRITION Gold Standard Whey Protein', 142, 14, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -81,7 +91,9 @@ CREATE TABLE `customer` (
 INSERT INTO `customer` (`id`, `first_name`, `last_name`, `email`, `state`, `pin_code`, `city`, `contact_number`) VALUES
 (1, 'nikhil ', 'gogoi', 'nikhilgogoi123@gmail.com', 'assam', '786188', 'lakhimpur', '1234567890'),
 (2, 'paras ', 'rai', 'parasrai234@gmail.com', 'assam', '786189', 'sadiya', '9908964789'),
-(3, 'dominik', 'toretto', 'dominik456@gmail.com', 'meghalaya', '793001', 'shillong', '6787658909');
+(3, 'dominik', 'toretto', 'dominik456@gmail.com', 'meghalaya', '793001', 'shillong', '6787658909'),
+(4, '', '', '', '', '', '', ''),
+(5, 'Ankit', 'Saikia', 'saikia@19.com', 'Assam', '797857', 'Tinsuka', '78877633');
 
 -- --------------------------------------------------------
 
@@ -192,17 +204,19 @@ INSERT INTO `product` (`id`, `price`, `name`, `category`, `image`, `cross_price`
 CREATE TABLE `users` (
   `id` int(100) NOT NULL,
   `name` text NOT NULL,
-  `password` text NOT NULL
+  `password` text NOT NULL,
+  `cid` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `password`) VALUES
-(1, 'shahill paul', 'shahill77'),
-(2, 'ankit saikia', 'ankit11'),
-(3, 'riki thapa', 'riki99');
+INSERT INTO `users` (`id`, `name`, `password`, `cid`) VALUES
+(1, 'shahill paul', 'shahill77', 0),
+(2, 'ankit saikia', 'ankit11', 0),
+(3, 'riki thapa', 'riki99', 0),
+(5, 'saikia', '123', 0);
 
 --
 -- Indexes for dumped tables
@@ -258,7 +272,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `uid` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `uid` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -270,7 +284,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -294,7 +308,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
