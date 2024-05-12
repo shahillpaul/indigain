@@ -191,6 +191,7 @@
       method: 'POST',
       success: function(res){
         console.log(res)
+        location.href = '?page=home'
       },
       error: function(err){
         console.log(err)
