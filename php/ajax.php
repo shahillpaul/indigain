@@ -28,7 +28,7 @@ if($a == "signin"){
     echo $save;
 }
 
-if($a == "signup-1"){
+if($a == "signup_1"){
 	$save = $crud->signup_1();
   if($save)
     echo $save;
