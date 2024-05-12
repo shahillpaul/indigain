@@ -94,8 +94,8 @@
             <input type="text" placeholder="Last name" name="last_name" class="form-control" />
             <label for="gender">Select your gender:</label>
     <select name="gender" id="gender">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
+        <option value="1">Male</option>
+        <option value="0">Female</option>
     </select>
           </div>
           <div class="form-group">
