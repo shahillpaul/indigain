@@ -87,8 +87,7 @@ include './php/auth.php';
 </style>
 
 <?php
-// $user_id = $_SESSION['user_id'];
-$user_id = 1;
+$user_id = isset($_SESSION['login_id']) ? $_SESSION['login_id'] : '';
 $user = $conn->query("SELECT * FROM customer WHERE id = '$user_id'");
 
 while($row = $user->fetch_assoc()){
