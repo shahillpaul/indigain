@@ -144,7 +144,20 @@
     e.preventDefault()
     let data = $(this).serialize()
     console.log(data)
-    sendRequest('signin',data)
+    $.ajax({
+      url: `./php/ajax.php?a=signin`,
+      data: data,
+      method: 'POST',
+      success: function(res){
+        console.log(res)
+        if(res){
+          location.href = '?page=home'
+        }
+      },
+      error: function(err){
+        console.log(err)
+      }
+    })
   })
 
   // signup form 1
@@ -157,7 +170,19 @@
 
     let data = $(this).serialize()
     console.log(data)
-    sendRequest('signup-1',data)
+    // sendRequest('signup-1',data)
+    $.ajax({
+      url: `./php/ajax.php?a=signup_1`,
+      data: data,
+      method: 'POST',
+      success: function(res){
+        console.log(res)
+        // location.href = '?page=home'
+      },
+      error: function(err){
+        console.log(err)
+      }
+    })
   })
 
   // signup form 2
@@ -165,7 +190,21 @@
     e.preventDefault()
     let data = $(this).serialize()
     console.log(data)
-    sendRequest('signup-2',data)
+    // sendRequest('signup-2',data)
+    $.ajax({
+      url: `./php/ajax.php?a=signup_2`,
+      data: data,
+      method: 'POST',
+      success: function(res){
+        console.log(res)
+        if(res){
+          location.href = '?page=home'
+        }
+      },
+      error: function(err){
+        console.log(err)
+      }
+    })
   })
 
   // signin option
@@ -191,7 +230,7 @@
       method: 'POST',
       success: function(res){
         console.log(res)
-        location.href = '?page=home'
+        // location.href = '?page=home'
       },
       error: function(err){
         console.log(err)
