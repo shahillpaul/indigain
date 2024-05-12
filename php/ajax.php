@@ -1,6 +1,6 @@
 <?php
 ob_start();
-$a = $_GET['a'];
+$a = isset($_GET['a']) ? $_GET['a'] : '';
 include './ajax_class.php';
 $crud = new Act();
 

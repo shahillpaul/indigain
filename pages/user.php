@@ -98,7 +98,6 @@ while($row = $user->fetch_assoc()){
   $state = $row['state'];
   $city = $row['city'];
   $pin = $row['pin_code'];
-  $ss = $row['gender'];
 }
 ?>
 
@@ -171,7 +170,8 @@ while($row = $user->fetch_assoc()){
         <div class="col-2 p-4">
           <?php
           $image;
-          if($ss == 0){
+          $ss = isset($_SESSION['login_id']) ? $_SESSION['login_id'] : '';
+          if($ss){
             $image = "./assets/female.jpg";
           } else {
             $image = "./assets/male.png";
@@ -183,7 +183,8 @@ while($row = $user->fetch_assoc()){
     </div>
   </div>
   <div class="d-flex p-4 justify-content-end align-items-center gap-4 buttons">
-    <button class="btn btn-primary btn-logout">Logout</button>
+    <button class="btn btn-back btn-danger">Go back</button>
+    <button class="btn btn-checkout btn-primary">Checkout</button>
   </div>
 </div>
 
@@ -220,12 +221,6 @@ while($row = $user->fetch_assoc()){
       confirmButtonColor: '#3085d6',
     }).then(res=>{
       location.href = '?page=home'
-    })
-  })
-
-  $('.btn-logout').on('click', function(){
-    $.ajax({
-      url: './php/'
     })
   })
 </script>

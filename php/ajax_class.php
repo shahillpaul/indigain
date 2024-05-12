@@ -73,7 +73,7 @@ Class Act {
           $_SESSION['login_'.$k] = $v;
         }
       }
-      return 1;
+      return "Login successful";
     } else if ($username == '' && $password == ''){
       return "Please enter the username and password";
     } else if ($password == ''){
