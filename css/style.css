@@ -27,7 +27,7 @@ body {
     height: 100vh;
     width: 100%;
     position: relative;
-    background-image: url(assets/istockphoto-491851412-1024x1024-transformed.jpeg);
+    background-image: url(../assets/istockphoto-491851412-1024x1024-transformed.jpeg);
     background-size: cover;
     color: #ffffff;
 }
