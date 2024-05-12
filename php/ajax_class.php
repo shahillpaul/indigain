@@ -73,7 +73,7 @@ Class Act {
           $_SESSION['login_'.$k] = $v;
         }
       }
-      return "Login successful";
+      return 1;
     } else if ($username == '' && $password == ''){
       return "Please enter the username and password";
     } else if ($password == ''){
@@ -122,5 +122,12 @@ Class Act {
     }
   }
 
-
+  function signout(){
+    session_destroy();
+    foreach ($_SESSION as $key => $value) {
+			unset($_SESSION[$key]);
+		}
+		header("location:login.php");
+    return 1;
+  }
 }

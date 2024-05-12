@@ -92,6 +92,11 @@
           <div class="form-group">
             <input type="text" placeholder="First name" name="first_name" class="form-control" />
             <input type="text" placeholder="Last name" name="last_name" class="form-control" />
+            <label for="gender">Select your gender:</label>
+    <select name="gender" id="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
           </div>
           <div class="form-group">
             <input type="text" placeholder="Email" name="email" class="form-control" />
