@@ -1,6 +1,6 @@
 <?php
     if(isset($_SESSION['login_id']))
-    header('location: ./?page=home');
+    header('location: ?page=home');
   ?>
 <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css" />
 <style>
