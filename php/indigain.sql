@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2024 at 08:38 PM
+-- Generation Time: May 12, 2024 at 09:21 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -81,19 +81,20 @@ CREATE TABLE `customer` (
   `state` text NOT NULL,
   `pin_code` varchar(6) NOT NULL,
   `city` text NOT NULL,
-  `contact_number` varchar(12) NOT NULL
+  `contact_number` varchar(12) NOT NULL,
+  `gender` tinyint(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`id`, `first_name`, `last_name`, `email`, `state`, `pin_code`, `city`, `contact_number`) VALUES
-(1, 'nikhil ', 'gogoi', 'nikhilgogoi123@gmail.com', 'assam', '786188', 'lakhimpur', '1234567890'),
-(2, 'paras ', 'rai', 'parasrai234@gmail.com', 'assam', '786189', 'sadiya', '9908964789'),
-(3, 'dominik', 'toretto', 'dominik456@gmail.com', 'meghalaya', '793001', 'shillong', '6787658909'),
-(4, '', '', '', '', '', '', ''),
-(5, 'Ankit', 'Saikia', 'saikia@19.com', 'Assam', '797857', 'Tinsuka', '78877633');
+INSERT INTO `customer` (`id`, `first_name`, `last_name`, `email`, `state`, `pin_code`, `city`, `contact_number`, `gender`) VALUES
+(1, 'nikhil ', 'gogoi', 'nikhilgogoi123@gmail.com', 'assam', '786188', 'lakhimpur', '1234567890', 0),
+(2, 'paras ', 'rai', 'parasrai234@gmail.com', 'assam', '786189', 'sadiya', '9908964789', 0),
+(3, 'dominik', 'toretto', 'dominik456@gmail.com', 'meghalaya', '793001', 'shillong', '6787658909', 0),
+(4, '', '', '', '', '', '', '', 0),
+(5, 'Ankit', 'Saikia', 'saikia@19.com', 'Assam', '797857', 'Tinsuka', '78877633', 0);
 
 -- --------------------------------------------------------
 
