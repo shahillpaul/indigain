@@ -93,10 +93,10 @@
             <input type="text" placeholder="First name" name="first_name" class="form-control" />
             <input type="text" placeholder="Last name" name="last_name" class="form-control" />
             <label for="gender">Select your gender:</label>
-    <select name="gender" id="gender">
-        <option value="1">Male</option>
-        <option value="0">Female</option>
-    </select>
+            <select name="gender" id="gender">
+              <option value="1">Male</option>
+              <option value="0">Female</option>
+            </select>
           </div>
           <div class="form-group">
             <input type="text" placeholder="Email" name="email" class="form-control" />
@@ -141,19 +141,19 @@
   let vh = 'visually-hidden'
   let bto = 'btn-outline-dark'
   let btd = 'btn-dark'
-  let cmdBtns = ['#signin-cmd','#next-cmd','#signup-cmd']
+  let cmdBtns = ['#signin-cmd', '#next-cmd', '#signup-cmd']
 
 
   // signin form
-  $(methodForms[0]).on('submit', function(e){
+  $(methodForms[0]).on('submit', function (e) {
     e.preventDefault()
     let data = $(this).serialize()
     console.log(data)
-    sendRequest('signin',data)
+    sendRequest('signin', data)
   })
 
   // signup form 1
-  $(methodForms[1]).on('submit', function(e){
+  $(methodForms[1]).on('submit', function (e) {
     e.preventDefault()
     // show form-2 and hide this form
     $(methodCards[2]).removeClass(vh)
@@ -162,15 +162,15 @@
 
     let data = $(this).serialize()
     console.log(data)
-    sendRequest('signup-1',data)
+    sendRequest('signup-1', data)
   })
 
   // signup form 2
-  $(methodForms[2]).on('submit', function(e){
+  $(methodForms[2]).on('submit', function (e) {
     e.preventDefault()
     let data = $(this).serialize()
     console.log(data)
-    sendRequest('signup-2',data)
+    sendRequest('signup-2', data)
   })
 
   // signin option
@@ -189,16 +189,16 @@
     $(methodCards[0]).addClass(vh)
   })
 
-  function sendRequest (cmd, data) {
+  function sendRequest(cmd, data) {
     $.ajax({
       url: `./php/ajax.php?a=${cmd}`,
       data: data,
       method: 'POST',
-      success: function(res){
+      success: function (res) {
         console.log(res)
         location.href = '?page=home'
       },
-      error: function(err){
+      error: function (err) {
         console.log(err)
       }
     })
