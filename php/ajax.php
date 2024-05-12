@@ -40,4 +40,10 @@ if($a == "signup-2"){
     echo $save;
 }
 
+if($a == "save"){
+	$save = $crud->save();
+  if($save)
+    echo $save;
+}
+
 ob_end_flush();

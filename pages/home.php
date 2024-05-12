@@ -37,7 +37,7 @@ while($row = $cartData->fetch_assoc()){
           <span class="cart-items-number"><?php echo $cartItems?></span>
           <i class="ion ion-ios-cart" id="cart"></i>
         </a>
-        <a href="?page=user" class="icon-btn">
+        <a href="#" class="icon-btn">
         <i class="ion ion-person" style="color: <?php 
         if ($isLogin){
           echo 'green';

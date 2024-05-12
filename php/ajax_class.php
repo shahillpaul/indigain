@@ -121,4 +121,12 @@ Class Act {
       return 0;
     }
   }
+
+  function save (){
+    extract($_POST);
+    if(!empty($username)){
+      $_SESSION['login_id'] = $username;
+      return 1;
+    }
+  }
 }
