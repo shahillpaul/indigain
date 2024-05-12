@@ -1,5 +1,6 @@
 <?php
-if(isset($_SESSION['user_id'])){
+include './php/auth.php';
+if(isset($_SESSION['login_id'])){
   $isLogin = true;
 } else {
   $isLogin = false;
