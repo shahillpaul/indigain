@@ -1,6 +1,6 @@
 <?php
     if(isset($_SESSION['login_id']))
-    header('location: ./?page=home');
+    header('location:./?page=home');
   ?>
 <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css" />
 <style>
@@ -166,6 +166,9 @@
     let data = $(this).serialize()
     console.log(data)
     sendRequest('signup-2',data)
+    setTimeout(function(){
+      location.reload()
+    },1000)
   })
 
   // signin option
@@ -191,7 +194,6 @@
       method: 'POST',
       success: function(res){
         console.log(res)
-        location.href = '?page=home'
       },
       error: function(err){
         console.log(err)
